@@ -1,9 +1,10 @@
 export type Stage = 'Seed' | 'Germinating' | 'Seedling' | 'Vegetative' | 'Flowering/Fruiting' | 'Harvest';
 export type Plant = { id:number; name:string; variety:string; emoji:string; garden:string; location:string; planted:string; stage:Stage; water:string; moisture:'Dry'|'Perfect'|'Wet'; sun:string; repot:string; note:string; photo:string };
+export type Garden = { name:string; locations:string[]; count:number; emoji:string; location:string; locationConfigured:boolean };
 
-export const gardens = [
-  { name:'Home', locations:['Back yard','Patio','Sunny side'], count:8, emoji:'🏡' },
-  { name:"Mum’s House", locations:['Front yard','Shady side'], count:4, emoji:'🌻' },
+export const gardens: Garden[] = [
+  { name:'Home', locations:['Back yard','Patio','Sunny side'], count:8, emoji:'🏡', location:'Set your home location', locationConfigured:false },
+  { name:"Mum’s House", locations:['Front yard','Shady side'], count:4, emoji:'🌻', location:'Set Mum’s location', locationConfigured:false },
 ];
 
 export const plants: Plant[] = [
@@ -14,7 +15,7 @@ export const plants: Plant[] = [
 ];
 
 export const activity = [
-  { icon:'💧', text:'Watered Herb Robert', meta:'Home · 2 hours ago' },
-  { icon:'📸', text:'Added a photo of Big Red', meta:'Home · Yesterday' },
-  { icon:'🌱', text:'Courgette Clooney sprouted', meta:"Mum’s House · 2 days ago" },
+  { garden:'Home', icon:'💧', text:'Watered Herb Robert', meta:'Patio · 2 hours ago' },
+  { garden:'Home', icon:'📸', text:'Big Red showed off for a photo', meta:'Sunny side · Yesterday' },
+  { garden:"Mum’s House", icon:'🌱', text:'Courgette Clooney popped up', meta:'Front yard · 2 days ago' },
 ];
